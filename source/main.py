@@ -1,7 +1,13 @@
+from include.window import Window
+
+import sys
+
 def main() -> int:
-    print("Hello, world!")
+    window: Window = Window("BlueStacks App Player")
+    if not window.maximize():
+        return -1
 
     return 0
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
