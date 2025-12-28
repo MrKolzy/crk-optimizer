@@ -1,5 +1,6 @@
-from include.folder import Folder
-from include.window import Window
+from include.capture import Capture
+from include.folder  import Folder
+from include.window  import Window
 
 import sys
 
@@ -12,6 +13,8 @@ def main() -> int:
 
     folder: Folder = Folder(FOLDER_NAME)
     folder.recreate()
+
+    capture: Capture = Capture(folder.get_path())
 
     return 0
 
