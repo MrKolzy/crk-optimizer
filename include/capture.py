@@ -7,7 +7,7 @@ class Capture:
         self.__path : Path = path
         self.__index: int  = 1
 
-    def __capture(self):
+    def __capture(self) -> None:
         capture = pag.screenshot()
         capture.save(self.__path / f"topping_{self.__index}.png")
         self.__index += 1
