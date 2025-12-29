@@ -1,6 +1,6 @@
+# capture.py
+pillow
+
 # window.py
 pyautogui
 pywin32
-
-# capture.py
-pillow

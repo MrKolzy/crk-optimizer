@@ -21,8 +21,11 @@ class Window:
             win32gui.SetForegroundWindow(self.__handle)
 
         # Switch BlueStacks to fullscreen mode
-        left, top, right, bottom = win32gui.GetWindowRect(self.__handle)
-        height = bottom - top
+        rect  : tuple[int, int, int, int] = win32gui.GetWindowRect(self.__handle)
+        top   : int = rect[1]
+        bottom: int = rect[3]
+
+        height: int = bottom - top
         if height != 1080:
             pag.press("F11")
 

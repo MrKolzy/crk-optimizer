@@ -1,4 +1,5 @@
-from pathlib import Path
+from PIL.Image import Image
+from pathlib   import Path
 
 import pyautogui as pag
 import time
@@ -10,11 +11,11 @@ class Capture:
         self.__rows : int  = rows
 
     def __capture(self) -> None:
-        capture = pag.screenshot()
+        capture: Image = pag.screenshot()
         capture.save(self.__path / f"topping_{self.__index}.png")
         self.__index += 1
 
-    def __select_topping(self, number: int, iterate_all = False) -> None:
+    def __select_topping(self, number: int, iterate_all: bool = False) -> None:
         # Coordinates of the first topping
         topping_x: int = 1086
         topping_y: int = 331
@@ -75,7 +76,7 @@ class Capture:
                 block_number += 1
 
     def __move_up(self) -> None:
-        up : int = self.__rows // 4
+        up: int = self.__rows // 4
         if up == 1:
             up += 1
 
