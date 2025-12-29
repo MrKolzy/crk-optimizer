@@ -84,3 +84,13 @@ class Capture:
             pag.moveTo(1086, 1055, duration = 1)
             time.sleep(0.6)
             pag.mouseUp()
+
+    @staticmethod
+    def __unequip_toppings() -> None:
+        time.sleep(1)
+        pag.click(894, 179)
+        time.sleep(1)
+        pag.click(894, 179)
+        time.sleep(1)
+        pag.click(963, 756)
+        time.sleep(1)
