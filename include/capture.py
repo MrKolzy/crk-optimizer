@@ -11,7 +11,7 @@ class Capture:
         self.__rows : int  = rows
 
     def __capture(self) -> None:
-        capture: Image = pag.screenshot()
+        capture: Image = pag.screenshot(region=(119, 577, 755, 247))
         capture.save(self.__path / f"topping_{self.__index}.png")
         self.__index += 1
 
@@ -24,6 +24,8 @@ class Capture:
         row_number  : int = 0
         block_number: int = 1
         counter     : int = 1
+
+        time.sleep(0.5)
 
         # Vertical loop
         for j in range(1, self.__rows + 1):
