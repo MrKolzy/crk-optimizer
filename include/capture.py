@@ -75,7 +75,11 @@ class Capture:
                 block_number += 1
 
     def __move_up(self) -> None:
-        for i in range(1, self.__rows // 4):
+        up : int = self.__rows // 4
+        if up == 1:
+            up += 1
+
+        for i in range(1, up):
             pag.click(1086, 331)
             pag.mouseDown()
             pag.moveTo(1086, 1055, duration = 1)
