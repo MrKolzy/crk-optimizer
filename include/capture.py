@@ -75,22 +75,32 @@ class Capture:
             if row_number % 4 == 0:
                 block_number += 1
 
-    def __move_up(self) -> None:
+    def __move_up(self, number: int) -> None:
         up: int = (self.__rows - 1) // 4
 
-        for i in range(up):
-            pag.click(1086, 331)
-            pag.mouseDown()
-            pag.moveTo(1086, 1055, duration = 1)
-            time.sleep(0.6)
-            pag.mouseUp()
+        # Scroll only after the fourth row
+        if number > 20:
+            for i in range(up):
+                pag.click(1086, 331)
+                pag.mouseDown()
+                pag.moveTo(1086, 1055, duration = 1)
+                time.sleep(0.6)
+                pag.mouseUp()
 
     @staticmethod
     def __unequip_toppings() -> None:
         time.sleep(1)
-        pag.click(894, 179)
+        pag.click(894, 179) # X button
         time.sleep(1)
-        pag.click(894, 179)
+        pag.click(894, 179) # Trash button
         time.sleep(1)
-        pag.click(963, 756)
+        pag.click(963, 756) # Remove button
         time.sleep(1)
+
+    def __equip_topping(self, number: int) -> None:
+        time.sleep(1)
+        self.__select_topping(number)
+        time.sleep(1)
+        pag.click(487, 995) # Equip button
+        time.sleep(1)
+        self.__move_up(number)
