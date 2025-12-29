@@ -4,17 +4,17 @@ from include.window  import Window
 
 import sys
 
-FOLDER_NAME: str = "toppings"
+ROWS: int = 8
 
 def main() -> int:
     window: Window = Window("BlueStacks App Player")
     if not window.maximize():
         return -1
 
-    folder: Folder = Folder(FOLDER_NAME)
+    folder: Folder = Folder()
     folder.recreate()
 
-    capture: Capture = Capture(folder.get_path())
+    capture: Capture = Capture(ROWS)
 
     return 0
 
